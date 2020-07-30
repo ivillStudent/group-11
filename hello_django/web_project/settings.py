@@ -11,6 +11,16 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,14 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'bootstrapform',
-<<<<<<< HEAD
     'crispy_forms',
     'account.apps.AccountConfig',
     'bookdetails',
-    'localflaavor',
-=======
-    
->>>>>>> 9e6f09e686a45fe05a355b805f540190e9d174d0
+    'localflavor',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
+
+LOGIN_REDIRECT_URL = "/manageAccount"
+
+PASSWORD_CHANGE_DONE_REDIRECT_URL = "/manageAccount"
